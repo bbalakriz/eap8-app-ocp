@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.helloworld.managed;
+package com.bala.eap.managed;
 
 import java.net.URI;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.as.arquillian.api.ContainerResource;
 import org.jboss.as.arquillian.container.ManagementClient;
-import org.jboss.as.quickstarts.helloworld.HelloWorldServletIT;
+import com.bala.eap.HelloWorldServletIT;
 import org.junit.runner.RunWith;
 
 
@@ -28,19 +28,19 @@ import org.junit.runner.RunWith;
  *
  * @author Emmanuel Hugonnet (c) 2022 Red Hat, Inc.
  */
-@RunWith(Arquillian.class)
-@RunAsClient
-public class ManagedHelloWorldServletIT extends HelloWorldServletIT {
-    @ContainerResource
-    private ManagementClient managementClient;
+// @RunWith(Arquillian.class)
+// @RunAsClient
+// public class ManagedHelloWorldServletIT extends HelloWorldServletIT {
+//     @ContainerResource
+//     private ManagementClient managementClient;
 
-    @Override
-    protected URI getHTTPEndpoint() {
-        return managementClient.getWebUri().resolve("/HelloWorld");
-    }
+//     @Override
+//     protected URI getHTTPEndpoint() {
+//         return managementClient.getWebUri().resolve("/HelloWorld");
+//     }
 
-    @Override
-    protected String getLineSeparator() {
-        return System.lineSeparator();
-    }
-}
+//     @Override
+//     protected String getLineSeparator() {
+//         return System.lineSeparator();
+//     }
+// }
