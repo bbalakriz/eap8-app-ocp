@@ -20,10 +20,14 @@
     </licenses>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        
         <!-- EAP 8 versions for BOMs, Dependencies and Plugins -->
         <version.server.bom>8.0.3.GA-redhat-00010</version.server.bom>
         <version.eap.maven.plugin>1.0.1.Final-redhat-00011</version.eap.maven.plugin>
         <maven.repository.protocol>https</maven.repository.protocol>
+        
         <!-- The full remote maven repo URL; can be overridden via -D for special use cases -->
         <maven.repository.url>
             ${maven.repository.protocol}://repository.jboss.org/nexus/content/groups/public/</maven.repository.url>
