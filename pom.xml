@@ -20,7 +20,7 @@
     </licenses>
 
     <properties>
-        <!-- The versions for BOMs, Dependencies and Plugins -->
+        <!-- EAP 8 versions for BOMs, Dependencies and Plugins -->
         <version.server.bom>8.0.3.GA-redhat-00010</version.server.bom>
         <version.eap.maven.plugin>1.0.1.Final-redhat-00011</version.eap.maven.plugin>
         <maven.repository.protocol>https</maven.repository.protocol>
@@ -74,8 +74,8 @@
             </snapshots>
             <layout>default</layout>
         </repository>
-
     </repositories>
+
     <pluginRepositories>
         <!-- keep this repository the first -->
         <pluginRepository>
@@ -160,32 +160,6 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-container-test-api</artifactId>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.arquillian</groupId>
-            <artifactId>wildfly-arquillian-common</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.arquillian</groupId>
-            <artifactId>wildfly-arquillian-container-managed</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -227,14 +201,14 @@
                                 <feature-pack>
                                     <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
                                 </feature-pack>
-                                <feature-pack>
+                                <!-- <feature-pack>
                                     <location>org.jboss.eap:eap-datasources-galleon-pack</location>
-                                </feature-pack>
+                                </feature-pack> -->
                             </feature-packs>
                             <layers>
                                 <layer>cloud-server</layer>
                             </layers>
-                            <filename>eap8-simple.war</filename>
+                            <filename>ROOT.war</filename>
                         </configuration>
                         <executions>
                             <execution>

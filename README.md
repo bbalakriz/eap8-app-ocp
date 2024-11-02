@@ -1,4 +1,17 @@
-Reference: https://github.com/wildfly/quickstart/tree/main/ejb-remote
+References: 
+============
+Examples: 
+1. Remote EJB: https://github.com/wildfly/quickstart/tree/main/ejb-remote
+2. Client JNDI lookup: https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/developing_jakarta_enterprise_beans_applications/index?extIdCarryOver=true&intcmp=7015Y000003t8u8QAA&sc_cid=701f2000000txokAAA#initial_context_lookup
+
+Red Hat KBs:
+1. https://access.redhat.com/solutions/3259861
+2. https://access.redhat.com/solutions/2972861
+3. https://access.redhat.com/solutions/266853
+4. https://access.redhat.com/solutions/3167251
+
+Wildfly Remote EJB in kubernetes clustered environment: https://groups.google.com/g/wildfly/c/XY_aDnU_AQk
+
 
 Local testing
 ==============
