@@ -15,7 +15,7 @@ public class EJBRemoteIT {
     private static final String DEFAULT_SERVER_HOST = "http://localhost:8080";
 
     private String getProviderURl() {
-        final String serverHost = System.getProperty("server.host");
+        final String serverHost = System.getenv("SERVER_HOST");
         return "remote+" + (serverHost != null ? serverHost : DEFAULT_SERVER_HOST);
     }
 
