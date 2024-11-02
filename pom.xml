@@ -18,21 +18,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.jboss.eap.quickstarts</groupId>
-        <artifactId>jboss-eap-quickstart-parent</artifactId>
-        <!--
-        Maintain separation between the artifact id and the version to help prevent
-        merge conflicts between commits changing the GA and those changing the V.
-        -->
-        <version>1.0.0.redhat-00001</version>
-        <relativePath/>
-    </parent>
-    <artifactId>helloworld</artifactId>
-    <version>8.0.0.Beta</version>
+
+    <groupId>com.bala</groupId>
+    <artifactId>eap8-simple</artifactId>
+    <version>8.0.3</version>
     <packaging>war</packaging>
-    <name>Quickstart: helloworld</name>
-    <description>Helloworld</description>
+    <name>eap8-ejb-remote</name>
+    <description>EJB remote test</description>
 
     <licenses>
         <license>
@@ -44,7 +36,7 @@
 
     <properties>
         <!-- The versions for BOMs, Dependencies and Plugins -->
-        <version.server.bom>8.0.0.GA-redhat-00009</version.server.bom>
+        <version.server.bom>8.0.3.GA-redhat-00010</version.server.bom>
         <maven.repository.protocol>https</maven.repository.protocol>
         <!-- The full remote maven repo URL; can be overridden via -D for special use cases -->
         <maven.repository.url>
@@ -82,7 +74,7 @@
             <url>${maven.redhat.repository.url}</url>
             <layout>default</layout>
         </repository>
-                <repository>
+        <repository>
             <id>redhat-ea-maven-repository</id>
             <name>Red Hat Early Access Maven Repository</name>
             <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
@@ -154,6 +146,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
+        <dependency>
+            <groupId>jakarta.ejb</groupId>
+            <artifactId>jakarta.ejb-api</artifactId>
+            <scope>provided</scope>
+        </dependency>        
+
         <!-- Import the Servlet API, we use provided scope as the API is included in WildFly -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -204,7 +203,7 @@
                     <plugin>
                         <groupId>org.jboss.eap.plugins</groupId>
                         <artifactId>eap-maven-plugin</artifactId>
-                        <version>1.0.0.Final-redhat-00014</version>
+                        <version>1.0.1.Final-redhat-00011</version> 
                         <configuration>
                             <channels>
                                 <channel>
@@ -221,7 +220,7 @@
                                 <feature-pack>
                                     <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
                                 </feature-pack>
-                                                                <feature-pack>
+                                <feature-pack>
                                     <location>org.jboss.eap:eap-datasources-galleon-pack</location>
                                 </feature-pack>
                             </feature-packs>
@@ -235,6 +234,17 @@
                                 <goals>
                                     <goal>package</goal>
                                 </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- do not attach sources to openshift deployments -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>none</phase>
                             </execution>
                         </executions>
                     </plugin>
