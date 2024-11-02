@@ -218,7 +218,14 @@
                                 </feature-pack>
                             </feature-packs>
                             <layers>
+                                <layer>base-server</layer>
+                                <layer>bean-validation</layer>
+                                <layer>cdi</layer>
+                                <layer>ejb</layer>
                                 <layer>cloud-server</layer>
+                                <layer>core-tools</layer>
+                                <layer>cloud-server</layer>
+                                <layer>datasources-web-server</layer>
                             </layers>
                             <filename>ROOT.war</filename>
                         </configuration>

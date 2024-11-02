@@ -20,7 +20,7 @@ public class EJBRemoteIT {
     }
 
     private String getEJBBaseJndiName() {
-        return "ejb:/eap8-simple";
+        return "ejb:/ROOT";
     }
 
     @Test
