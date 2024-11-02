@@ -198,6 +198,19 @@
                         <artifactId>eap-maven-plugin</artifactId>
                         <version>${version.eap.maven.plugin}</version> 
                         <configuration>
+                            <add-user>
+                                <users>
+                                    <user>
+                                        <username>quickstartUser</username>
+                                        <password>quickstartPwd1!</password>
+                                        <groups>
+                                            <group>admin</group>
+                                            <group>user</group>
+                                        </groups>
+                                        <application-user>true</application-user>
+                                    </user>
+                                </users>
+                            </add-user>                            
                             <channels>
                                 <channel>
                                     <manifest>
