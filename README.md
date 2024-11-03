@@ -71,12 +71,14 @@ helm install eap8 -f charts/helm.yaml --repo https://jbossas.github.io/eap-chart
 
 ```
 
-7. Add a user to the EAP8 server deployed on OpenShift
+7. Make sure that the deployed EAP8 server has non-HTTP route (TLS disabled)
+
+8. Add a user to the EAP8 server deployed on OpenShift
 ```
 oc exec <EAP8-POD-NAME> -n eap8 -- /opt/server/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!'
 ```
 
-8. Test the remote EJB invocation by running the following in the terminal.  
+9. Test the remote EJB invocation by running the following in the terminal.  
 ```
 mvn verify -Pintegration-testing -Dserver.host=http://eap8-eap8.apps.cluster-m55vs.m55vs.sandbox2542.opentlc.com:80
 ```
