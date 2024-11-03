@@ -15,9 +15,10 @@ Wildfly Remote EJB in kubernetes clustered environment: https://groups.google.co
 
 Local testing
 ==============
-1. Start EAP 8 on the local machine
+1. Start EAP 8 on the local machine and add the user that's used for remote EJB authentication 
 ```
 cd /Users/bbalasub/Mywork/Setup/eap8/bin
+./add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' 
 ./standalone.sh
 ```
 
@@ -49,13 +50,33 @@ helm repo add jboss-eap https://jbossas.github.io/eap-charts/
 mvn clean package -Popenshift -DskipTests
 ```
 
-3. Access the application at the following URL 
+3. Start the generated embedded EAP server locally to test EAP server readiness with the deployed EJB application
 ```
-http://localhost:8080/eap8-simple/TestServlet
+./target/server/bin/standalone.sh
 ```
 
-4. Run remote EJB integration testing
+4. In a new terminal, add a user to the EAP server for remote EJB authentication
+```
+./target/server/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' 
+```
+
+5. Run remote EJB integration testing
 ```
 mvn verify -Pintegration-testing
 ```
 
+6. Deploy EAP along with the application to OpenShift. Test if the deployment and pods are up and running with the EJB application deployed and shown in the log with all possible JNDI lookup names for the EJB. 
+```
+helm install eap8 -f charts/helm.yaml --repo https://jbossas.github.io/eap-charts/ eap8
+
+```
+
+7. Add a user to the EAP8 server deployed on OpenShift
+```
+oc exec <EAP8-POD-NAME> -n eap8 -- /opt/server/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!'
+```
+
+8. Test the remote EJB invocation by running the following in the terminal.  
+```
+mvn verify -Pintegration-testing -Dserver.host=http://eap8-eap8.apps.cluster-m55vs.m55vs.sandbox2542.opentlc.com:80
+```
