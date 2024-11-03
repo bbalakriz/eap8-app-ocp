@@ -33,6 +33,12 @@ public class EJBRemoteIT {
         jndiProperties.put(Context.SECURITY_PRINCIPAL, "quickstartUser");
         jndiProperties.put(Context.SECURITY_CREDENTIALS, "quickstartPwd1!");
 
+        jndiProperties.put("jboss.naming.client.connect.options.org.xnio.Options.SASL_POLICY_NOPLAINTEXT", "false");
+        jndiProperties.put("jboss.naming.client.connect.options.org.xnio.Options.SSL_STARTTLS", "false");
+        jndiProperties.put("jboss.naming.client.connect.options.org.xnio.Options.SSL_ENABLED", "false");
+        jndiProperties.put("jboss.naming.client.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS", "false");
+
+
         final Context context = new InitialContext(jndiProperties);
         // The JNDI lookup name for a stateless session bean has the syntax of:
         // ejb:<appName>/<moduleName>/<distinctName>/<beanName>!<viewClassName>
@@ -58,6 +64,8 @@ public class EJBRemoteIT {
       
         final RemoteCalculator statelessRemoteCalculator = (RemoteCalculator) context
                 .lookup(getEJBBaseJndiName() + "/CalculatorBean!" + RemoteCalculator.class.getName());
+
+        System.out.println(statelessRemoteCalculator!=null? statelessRemoteCalculator.toString(): "statelessRemoteCalculator is null");                                    
         System.out.println("Obtained a remote stateless calculator for invocation");
 
         // invoke on the remote calculator
