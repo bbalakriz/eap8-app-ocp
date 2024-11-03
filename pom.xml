@@ -198,6 +198,12 @@
                         <artifactId>eap-maven-plugin</artifactId>
                         <version>${version.eap.maven.plugin}</version> 
                         <configuration>
+                            <discover-provisioning-info>
+                                <version>${version.server}</version>
+                                <addOns>
+                                    <addOn>wildfly-cli</addOn>
+                                </addOns>
+                            </discover-provisioning-info>                               
                             <add-user>
                                 <users>
                                     <user>
