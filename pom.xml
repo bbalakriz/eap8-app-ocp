@@ -128,7 +128,7 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided scope
-                                        as the API is included in WildFly -->
+                                                                        as the API is included in WildFly -->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
@@ -204,25 +204,25 @@
                         <artifactId>eap-maven-plugin</artifactId>
                         <version>${version.eap.maven.plugin}</version>
                         <configuration>
-                            <!-- <discover-provisioning-info>
-                                                            <version>${version.server}</version>
-                                                            <addOns>
-                                                                <addOn>wildfly-cli</addOn>
-                                                            </addOns>
-                                                        </discover-provisioning-info>
-                                                        <add-user>
-                                                            <users>
-                                                                <user>
-                                                                    <username>quickstartUser</username>
-                                                                    <password>quickstartPwd1!</password>
-                                                                    <groups>
-                                                                        <group>admin</group>
-                                                                        <group>user</group>
-                                                                    </groups>
-                                                                    <application-user>true</application-user>
-                                                                </user>
-                                                            </users>
-                                                        </add-user> -->
+                            <discover-provisioning-info>
+                                <version>${version.server}</version>
+                                <addOns>
+                                    <addOn>wildfly-cli</addOn>
+                                </addOns>
+                            </discover-provisioning-info>
+                            <add-user>
+                                <users>
+                                    <user>
+                                        <username>quickstartUser</username>
+                                        <password>quickstartPwd1!</password>
+                                        <groups>
+                                            <group>admin</group>
+                                            <group>user</group>
+                                        </groups>
+                                        <application-user>true</application-user>
+                                    </user>
+                                </users>
+                            </add-user>
                             <channels>
                                 <channel>
                                     <manifest>
@@ -243,15 +243,15 @@
                                 </feature-pack>
                             </feature-packs>
                             <layers>
+                                <layer>base-server</layer>
+                                <layer>bean-validation</layer>
+                                <layer>cdi</layer>
+                                <layer>ejb</layer>
+                                <layer>ejb3</layer>
                                 <layer>cloud-server</layer>
-                                <!-- <layer>base-server</layer>
-                                                                                                                                <layer>bean-validation</layer>
-                                                                                                                                <layer>cdi</layer>
-                                                                                                                                <layer>ejb</layer>
-                                                                                                                                <layer>cloud-server</layer>
-                                                                                                                                <layer>core-tools</layer>
-                                                                                                                                <layer>cloud-server</layer>
-                                                                                                                                <layer>datasources-web-server</layer> -->
+                                <layer>core-tools</layer>
+                                <layer>cloud-server</layer>
+                                <layer>datasources-web-server</layer>
                             </layers>
                             <filename>ROOT.war</filename>
                         </configuration>
@@ -265,15 +265,15 @@
                     </plugin>
                     <!-- do not attach sources to openshift deployments -->
                     <!-- <plugin>
-                                                                                                        <groupId>org.apache.maven.plugins</groupId>
-                                                                                                        <artifactId>maven-source-plugin</artifactId>
-                                                                                                        <executions>
-                                                                                                            <execution>
-                                                                                                                <id>attach-sources</id>
-                                                                                                                <phase>none</phase>
-                                                                                                            </execution>
-                                                                                                        </executions>
-                                                                                                    </plugin> -->
+                                                                                                                                                                                        <groupId>org.apache.maven.plugins</groupId>
+                                                                                                                                                                                        <artifactId>maven-source-plugin</artifactId>
+                                                                                                                                                                                        <executions>
+                                                                                                                                                                                            <execution>
+                                                                                                                                                                                                <id>attach-sources</id>
+                                                                                                                                                                                                <phase>none</phase>
+                                                                                                                                                                                            </execution>
+                                                                                                                                                                                        </executions>
+                                                                                                                                                                                    </plugin> -->
                 </plugins>
             </build>
         </profile>
