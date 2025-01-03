@@ -128,7 +128,7 @@
         </dependency>
 
         <!-- Import the Common Annotations API (JSR-250), we use provided scope
-                                                                        as the API is included in WildFly -->
+                                                                                as the API is included in WildFly -->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
@@ -247,7 +247,6 @@
                                 <layer>bean-validation</layer>
                                 <layer>cdi</layer>
                                 <layer>ejb</layer>
-                                <layer>ejb3</layer>
                                 <layer>cloud-server</layer>
                                 <layer>core-tools</layer>
                                 <layer>cloud-server</layer>
@@ -265,15 +264,15 @@
                     </plugin>
                     <!-- do not attach sources to openshift deployments -->
                     <!-- <plugin>
-                                                                                                                                                                                        <groupId>org.apache.maven.plugins</groupId>
-                                                                                                                                                                                        <artifactId>maven-source-plugin</artifactId>
-                                                                                                                                                                                        <executions>
-                                                                                                                                                                                            <execution>
-                                                                                                                                                                                                <id>attach-sources</id>
-                                                                                                                                                                                                <phase>none</phase>
-                                                                                                                                                                                            </execution>
-                                                                                                                                                                                        </executions>
-                                                                                                                                                                                    </plugin> -->
+                                                                                                                                                                                                            <groupId>org.apache.maven.plugins</groupId>
+                                                                                                                                                                                                            <artifactId>maven-source-plugin</artifactId>
+                                                                                                                                                                                                            <executions>
+                                                                                                                                                                                                                <execution>
+                                                                                                                                                                                                                    <id>attach-sources</id>
+                                                                                                                                                                                                                    <phase>none</phase>
+                                                                                                                                                                                                                </execution>
+                                                                                                                                                                                                            </executions>
+                                                                                                                                                                                                        </plugin> -->
                 </plugins>
             </build>
         </profile>
