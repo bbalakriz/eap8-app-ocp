@@ -2,4 +2,4 @@ build:
   uri: https://github.com/bbalakriz/eap8-app-ocp.git
   ref: main
 deploy:
-  replicas: 1
+  enabled: false
