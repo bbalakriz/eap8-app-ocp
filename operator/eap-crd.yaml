@@ -5,3 +5,6 @@ metadata:
 spec:
   applicationImage: eap8:latest
   replicas: 2
+# use "eap8:latest" if you want to use the image built by helm
+# else, use the Containerfile to build the image and reference that image here.
+# for example: quay.io/balki404/eap8-app-ocp:1.0
