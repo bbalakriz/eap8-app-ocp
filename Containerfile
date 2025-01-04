@@ -25,7 +25,7 @@ COPY --chown=jboss:root target/ROOT.war $JBOSS_HOME/standalone/deployments/
 # add an application user for ejb remoting
 RUN $JBOSS_HOME/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!'
 
-#ENV CONFIG_IS_FINAL=true # in case the configuration doesn't need any deployment change
+ENV CONFIG_IS_FINAL=true # in case the configuration doesn't need any deployment change
 
 # ensure appropriate permissions for $JBOSS_HOME
 RUN chmod -R ug+rwX $JBOSS_HOME
